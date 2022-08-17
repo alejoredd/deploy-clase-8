@@ -76,7 +76,7 @@ const Home: NextPage<IProps> = ({ marvelData }) => {
 };
 
 export async function getServerSideProps() {
-  const marvelRes = await fetch(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`)
+  const marvelRes = await fetch(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=6e2eeef6d38560370212ad1ba00b4572&hash=bf85c98f1453cf779b14022df272675f`)
   const marvelData: Character[] = (await marvelRes.json()).data.results
 
   return { props: { marvelData } };
