@@ -68,7 +68,7 @@ const Home: NextPage<IProps> = ({ marvelData }) => {
           <span className={styles.logo}>
             <Image src="/heart.png" alt="Vercel Logo" width={20} height={20} />
           </span>
-          por DH
+          por 
         </b>
       </footer>
     </div>
@@ -76,7 +76,7 @@ const Home: NextPage<IProps> = ({ marvelData }) => {
 };
 
 export async function getServerSideProps() {
-  const marvelRes = await fetch(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=6e2eeef6d38560370212ad1ba00b4572&hash=bf85c98f1453cf779b14022df272675f`)
+  const marvelRes = await fetch(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${process.env.API_KEY}&hash=${process.env.HASH}`)
   const marvelData: Character[] = (await marvelRes.json()).data.results
 
   return { props: { marvelData } };
